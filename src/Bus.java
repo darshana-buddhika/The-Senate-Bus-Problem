@@ -14,6 +14,7 @@ public class Bus extends Thread {
 				{
 					Main.riders = Math.min(Main.count,50);
 					System.out.println("Notify Bus has arrived...");
+					System.out.println(Main.riders + " riders are wating to aboard the bus..");
 					Main.bus.release();
 					System.out.println("Bus is Wait for All aborad signle...");
 					Main.all_abord.acquire();
