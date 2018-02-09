@@ -31,11 +31,14 @@ public class Child extends Thread {
 			if (Main.riders  == 0)
 			{
 				System.out.println("Notify bus to depart...");
+				Main.riders = 50;
+				Main.count -= Main.riders;
+				Main.multiplex.release(50);
 				Main.all_abord.release();
+				
 			}
 			else
 			{
-				System.out.println("Got in to the bus thread : "+name);
 				Main.bus.release();
 			}
 		}
@@ -47,6 +50,6 @@ public class Child extends Thread {
 	
 	private void aboard() 
 	{
-//		Aboard code gose here...
+		System.out.println("Child aboard to the bus : "+name);
 	}
 }

@@ -1,20 +1,21 @@
 
 public class Bus extends Thread {
 	private String name;
-	
-	Bus(String name){
+	private long start_time;
+	Bus(String name, double start_time){
 		this.name = name;
+		this.start_time = (long)start_time;
 		System.out.println("Bus thread is creating....");
 	}
 	public void run() {
-		
 		try {
+			Thread.sleep(start_time);
 			Main.mutex.acquire();
 				if (Main.count > 0)
 				{
 					System.out.println("Notify Bus has arrived...");
 					Main.bus.release();
-					System.out.println("Wait for All aborad signle...");
+					System.out.println("Bus is Wait for All aborad signle...");
 					Main.all_abord.acquire();
 					
 				}
@@ -34,6 +35,6 @@ public class Bus extends Thread {
 	
 	private void depart() 
 	{
-//		Bus depature code ...
+		System.out.println("Bus is departing....");
 	}
 }
