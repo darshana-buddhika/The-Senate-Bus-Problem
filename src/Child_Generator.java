@@ -9,7 +9,7 @@ public class Child_Generator extends Thread
 		{
 			Child bus = new Child(child_counter+"");
 			double child_create = next_time.child_next_time();
-			System.out.println("Child thead is creating in : "+child_create);
+			System.out.println("Child thead is starts in : "+(int)child_create+" seconds");
 			try {
 				Thread.sleep((long)child_create*1000);
 				bus.start();

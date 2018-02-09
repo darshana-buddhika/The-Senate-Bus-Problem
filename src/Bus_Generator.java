@@ -9,7 +9,7 @@ public class Bus_Generator extends Thread
 		{
 			Bus bus = new Bus(bus_counter+"");
 			double bus_starts = next_time.bus_next_time();
-			System.out.println("Bus thead is creating in : "+bus_starts);
+			System.out.println("Bus thead is starts in : "+(int)bus_starts+" seconds");
 			try {
 				Thread.sleep((long)bus_starts*1000);
 				bus.start();
