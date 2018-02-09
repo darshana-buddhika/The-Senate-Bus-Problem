@@ -2,10 +2,9 @@
 public class Bus extends Thread {
 	private String name;
 	private long start_time;
-	Bus(String name, double start_time){
+	Bus(String name){
 		this.name = name;
-		this.start_time = (long)start_time;
-		System.out.println("Bus thread is creating....");
+		System.out.println("Bus thread : "+name+" is creating....");
 	}
 	public void run() {
 		try {
@@ -13,6 +12,7 @@ public class Bus extends Thread {
 			Main.mutex.acquire();
 				if (Main.count > 0)
 				{
+					Main.riders = Math.min(Main.count,50);
 					System.out.println("Notify Bus has arrived...");
 					Main.bus.release();
 					System.out.println("Bus is Wait for All aborad signle...");

@@ -7,11 +7,10 @@ public class Child extends Thread {
 	
 	Child(String name){
 		this.name = name;
-		System.out.println("Creating the thread : "+name);
+		System.out.println("Creating Child thread : "+name);
 	}
 	
 	public void run() {
-		System.out.println("Running the thread : " +name);
 		try {
 			Main.mutex.acquire();
 			System.out.println("Child : "+ name + " Entering to the station..");
@@ -31,8 +30,6 @@ public class Child extends Thread {
 			if (Main.riders  == 0)
 			{
 				System.out.println("Notify bus to depart...");
-				Main.riders = 50;
-				Main.count -= Main.riders;
 				Main.multiplex.release(50);
 				Main.all_abord.release();
 				

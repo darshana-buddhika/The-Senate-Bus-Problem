@@ -3,7 +3,7 @@ import java.util.concurrent.Semaphore;
 public class Main 
 {
 	public static int count = 0;
-	public static int riders = 50;
+	public static int riders = 0;
 	public static int bus_count = 0;
 	public static Semaphore mutex = new Semaphore(1);
 	public static Semaphore multiplex = new Semaphore(50);
@@ -16,7 +16,8 @@ public class Main
 		System.out.println("############# The Senate Bus Problem ###############");
 		System.out.println("####################################################");
 		
-		Time_Generator next_time = new Time_Generator();
+		new Bus_Generator().start();
+		new Child_Generator().start();
 		
 		
 	
