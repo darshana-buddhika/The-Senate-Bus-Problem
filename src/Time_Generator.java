@@ -1,8 +1,8 @@
 import java.util.Random;
 
 public class Time_Generator {
-	private int bus_mean_arrival_time = 120;  // mean time for a bus is 120 seconds
-	private int child_mean_arrival_time = 2;  // mean time for a child is 2 seconds
+	private int bus_mean_arrival_time = 60*20;  // mean time for a bus is 20 minutes
+	private int child_mean_arrival_time = 2;  // mean time for a child is 30 seconds
 	
 	public double bus_next_time() {
 		return next_time(bus_mean_arrival_time);
